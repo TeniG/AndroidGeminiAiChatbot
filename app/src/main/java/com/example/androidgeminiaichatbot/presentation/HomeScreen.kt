@@ -142,7 +142,6 @@ fun HomeScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     IconButton(
-
                         onClick = {
                             //Launch Picker
                             pictureMediaLauncher.launch(
@@ -162,13 +161,12 @@ fun HomeScreen(
 
                     //Question TextField
                     OutlinedTextField(
-
                         value = userQuestion,
                         onValueChange = {
                             userQuestion = it
                         },
                         label = {
-                            Text(text = "User Input")
+                            Text(text = "Enter Search text")
                         },
                         placeholder = {
                             Text(text = "Upload image & Ask Question.")
@@ -192,7 +190,6 @@ fun HomeScreen(
                 }
 
                 AnimatedVisibility(visible = true) {
-
                     Card(modifier = Modifier.fillMaxWidth()) {
                         LazyRow(modifier = Modifier.padding(8.dp)) {
                             items(imageUris) { imageUri ->
@@ -232,7 +229,7 @@ fun HomeScreen(
                 }
 
                 is HomeScreenState.loading -> {
-                    Box(contentAlignment = Alignment.Center, content = {
+                    Box(modifier = Modifier.fillMaxSize(),contentAlignment = Alignment.Center, content = {
                         CircularProgressIndicator()
                     })
                 }
